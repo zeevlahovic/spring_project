@@ -1,7 +1,9 @@
-package com.zee.loosely_coupled.motherboardfactory;
+package com.zee.loosely_coupled;
+
 
 import com.zee.loosely_coupled.casefactory.Case;
 import com.zee.loosely_coupled.monitorfactory.Monitor;
+import com.zee.loosely_coupled.motherboardfactory.Motherboard;
 
 public class PC {
 
@@ -24,4 +26,5 @@ public class PC {
         monitor.drawPixelAt();
     }
 }
+
 
