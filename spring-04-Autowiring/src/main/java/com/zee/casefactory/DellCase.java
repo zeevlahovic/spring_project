@@ -1,16 +1,18 @@
 package com.zee.casefactory;
 
-public class DellCase extends Case {
+import lombok.Getter;
+import org.springframework.stereotype.Component;
 
-    public DellCase(String model, String manufacturer, String powerSupply,Dimensions dimensions) {
+@Getter
+@Component
+public class DellCase extends Case  {
 
-        super(model, manufacturer, powerSupply,dimensions);
+    public DellCase() {
+        super("2208","Dell","240");
     }
 
     public void pressPowerButton() {
-
         System.out.println("Power button pressed");
     }
 
 }
-
