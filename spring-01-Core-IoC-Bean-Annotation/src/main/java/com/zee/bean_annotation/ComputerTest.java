@@ -24,7 +24,7 @@ public class ComputerTest {
 
         System.out.println("************Retrieving the beans******************");
 
-        SonyMonitor sony = container.getBean(SonyMonitor.class);
+        SonyMonitor sony = container.getBean("sony",SonyMonitor.class);
         DellCase dell = container.getBean(DellCase.class);
         AsusMotherboard asus = container.getBean(AsusMotherboard.class);
 
@@ -44,7 +44,7 @@ public class ComputerTest {
 
         System.out.println("************Multiple Objects******************");
 
-        Monitor theMonitor2 = container.getBean("monitorSony", Monitor.class);  //DEFAULT BEAN NAME
+        //Monitor theMonitor2 = container.getBean("monitorSony", Monitor.class);  //DEFAULT BEAN NAME
         Monitor theMonitor3 = container.getBean("sony", Monitor.class);  //CUSTOM BEAN NAME
         Monitor theMonitor4 = container.getBean( Monitor.class);  //@Primary
 
