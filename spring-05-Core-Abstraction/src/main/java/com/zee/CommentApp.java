@@ -1,5 +1,6 @@
 package com.zee;
 
+import com.zee.config.CommentConfig;
 import com.zee.model.Comment;
 import com.zee.service.CommentService;
 import org.springframework.context.ApplicationContext;
