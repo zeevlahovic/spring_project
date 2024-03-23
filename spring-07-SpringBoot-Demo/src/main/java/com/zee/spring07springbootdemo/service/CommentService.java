@@ -39,7 +39,7 @@ public class CommentService {
     }
 
     public void printDbConfigData(){
-        System.out.println(dbConfigData.getUsername());
+        System.out.println(dbConfigData.getUserName());
         System.out.println(dbConfigData.getPassword());
         System.out.println(dbConfigData.getType());
     }
