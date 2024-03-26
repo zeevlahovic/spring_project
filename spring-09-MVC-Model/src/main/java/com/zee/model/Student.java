@@ -1,4 +1,4 @@
-package com.zee.module;
+package com.zee.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

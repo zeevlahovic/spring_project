@@ -1,6 +1,6 @@
 package com.zee.controller;
 
-import com.zee.module.Student;
+import com.zee.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
