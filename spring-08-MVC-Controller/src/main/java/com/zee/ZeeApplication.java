@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@SpringBootApplication(exclude = {AopAutoConfiguration.class})
-public class zeeApplication {
+public class ZeeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(zeeApplication.class, args);
+		SpringApplication.run(ZeeApplication.class, args);
 	}
 
 }
