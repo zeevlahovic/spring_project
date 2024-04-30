@@ -4,9 +4,10 @@ import jakarta.persistence.Entity;
 
 import java.math.BigDecimal;
 
+@Entity
 public class CreditAccount extends Account {
 
-    @Entity
+
     private BigDecimal creditLimit;
 
 }
