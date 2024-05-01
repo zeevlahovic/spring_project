@@ -1,9 +1,6 @@
 package com.zee.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,12 +9,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "merchants")
-@NoArgsConstructor
 @Data
-
+@NoArgsConstructor
 public class Merchant {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -26,8 +23,10 @@ public class Merchant {
     private BigDecimal commissionRate;
     private Integer payoutDelayCount;
 
-    @OneToMany
-    private List<Payment>paymentList;
+   //@OneToMany(mappedBy = "merchant") //in OneToMany relationship, ownership belongs to many side
+   //private List<Payment> paymentList;
+
+
 
     public Merchant(String name, String code, BigDecimal transactionFee, BigDecimal commissionRate, Integer payoutDelayCount) {
         this.name = name;
