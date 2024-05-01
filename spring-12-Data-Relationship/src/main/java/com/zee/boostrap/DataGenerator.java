@@ -2,6 +2,8 @@ package com.zee.boostrap;
 
 import com.zee.entity.*;
 import com.zee.enums.Status;
+import com.zee.repository.CartRepository;
+import com.zee.repository.ItemRepository;
 import com.zee.repository.MerchantRepository;
 import com.zee.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +18,14 @@ public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
+    private final ItemRepository itemRepository;
+    private final CartRepository cartRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, ItemRepository itemRepository, CartRepository cartRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
+        this.itemRepository = itemRepository;
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -33,8 +39,9 @@ public class DataGenerator implements CommandLineRunner {
         Payment payment2 = new Payment(LocalDate.of(2022,4,25),new BigDecimal("100000"), Status.FAILURE);
         PaymentDetail paymentDetail2 = new PaymentDetail(new BigDecimal("90000"),new BigDecimal("5000"),LocalDate.of(2022,4,29));
 
-        Merchant merchant1 = new Merchant("AmazonSubMerchant","M123",new BigDecimal("0.25"),new BigDecimal("3.25"),5);
+        payment2.setPaymentDetail(paymentDetail2);
 
+        Merchant merchant1 = new Merchant("AmazonSubMerchant","M123",new BigDecimal("0.25"),new BigDecimal("3.25"),5);
 
         payment1.setMerchant(merchant1);
         payment2.setMerchant(merchant1);
@@ -49,6 +56,14 @@ public class DataGenerator implements CommandLineRunner {
         cart1.setItemList(Arrays.asList(item1,item2,item3));
         cart2.setItemList(Arrays.asList(item1,item2));
 
+        itemRepository.save(item1);
+        itemRepository.save(item2);
+        itemRepository.save(item3);
+
+        cartRepository.save(cart1);
+        cartRepository.save(cart2);
+
+
         merchantRepository.save(merchant1);
 
         paymentRepository.save(payment1);
@@ -56,9 +71,8 @@ public class DataGenerator implements CommandLineRunner {
 
 
 
-        System.out.println(paymentRepository.findById(2L).get().getPaymentDetail().getCommissionAmount());
 
-        paymentRepository.delete(payment1);
+
 
     }
 }
