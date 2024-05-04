@@ -25,8 +25,8 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
 
-   // @OneToOne(cascade = CascadeType.ALL)
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToOne(cascade = CascadeType.ALL)
+   // @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name = "paymentDetailId")
     private PaymentDetail paymentDetail;
 
