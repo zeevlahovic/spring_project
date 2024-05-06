@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Account_details")
+@Table(name = "account_details")
 public class Account extends BaseEntity {
 
     private String name;
@@ -23,3 +23,4 @@ public class Account extends BaseEntity {
     @OneToOne(mappedBy = "account")
     private User user;
 }
+

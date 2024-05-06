@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-public class Cinema extends BaseEntity{
+public class Cinema extends BaseEntity {
 
     private String name;
     private String sponsoredName;

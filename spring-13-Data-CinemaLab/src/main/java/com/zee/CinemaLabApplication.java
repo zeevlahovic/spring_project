@@ -16,8 +16,8 @@ public class CinemaLabApplication {
     }
 
     @Bean
-    public MigrateResult migrateResult(DataSource dataSource){
-        return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
-    }
+	public MigrateResult migrateResult(DataSource dataSource){
+		return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
+}
 
 }
