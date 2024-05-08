@@ -1,6 +1,7 @@
 package com.zee;
 
 import com.zee.repository.DepartmentRepository;
+import com.zee.repository.EmployeeRepository;
 import com.zee.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,10 +11,12 @@ public class QueryDemo implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public QueryDemo(RegionRepository repository, DepartmentRepository departmentRepository) {
+    public QueryDemo(RegionRepository repository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
         this.regionRepository = repository;
         this.departmentRepository = departmentRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
@@ -33,5 +36,9 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findByDivision" + departmentRepository.findByDivision("Health"));
         System.out.println("findByDivisionEndsWith" + departmentRepository.findByDivisionEndsWith("ics"));
         System.out.println("findDistinctTop3ByDivisionContains" + departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
+
+
+        System.out.println("-----------EMPLOYEES----------");
+        System.out.println(employeeRepository.retrieveEmployeeDetail());
     }
 }
