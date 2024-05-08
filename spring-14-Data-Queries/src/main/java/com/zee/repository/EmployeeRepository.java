@@ -7,14 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     //Display all employees with email address ""
-    List<Employee>findByEmail(String email);
+    List<Employee> findByEmail(String email);
 
     //Display all employees with firstname "" and last name "",
     //also show all employees with an email address ""
-    List<Employee>findByFirstNameAndLastNameOrEmail(String firstname,String lastname,String email);
+    List<Employee> findByFirstNameAndLastNameOrEmail(String firstname, String lastname, String email);
 
     // //Display all employees that first name is not ""
     List<Employee> findByFirstNameIsNot(String firstname);
@@ -35,7 +35,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     List<Employee> findBySalaryGreaterThanEqualOrderBySalary(Integer salary);
 
     //Display top unique 3 employees that is making less than ""
-    List<Employee>findTop3BySalaryLessThan(Integer salary);
+    List<Employee> findTop3BySalaryLessThan(Integer salary);
 
     //Display all employees that do not have email address
     List<Employee> findByEmailIsNull();
@@ -43,8 +43,30 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query("SELECT employee FROM Employee employee WHERE employee.email = 'amcnee1@google.es'")
     Employee retrieveEmployeeDetail();
 
-   @Query("SELECT e.salary FROM Employee e WHERE e.email = 'amcnee1@google.es'")
+    @Query("SELECT e.salary FROM Employee e WHERE e.email = 'amcnee1@google.es'")
     Integer retrieveEmployeeSalary();
 
+    //Not Equal
+    @Query("SELECT e FROM Employee e WHERE e.salary <> ?1")
+    List<Employee> retrieveEmployeesSalaryNotEqual(int salary);
 
+    @Query("SELECT e FROM Employee e WHERE e.firstName LIKE ?1")
+        //Like / Contains / Starts-with / Ends-with
+    List<Employee> retrieveEmployeeFirstNameLike(String pattern);
+
+    //Less Than
+    @Query("SELECT e.firstName FROM Employee e WHERE e.salary < ?1")
+    List<Employee> retrieveEmployeeSalaryLessThan(int salary);
+
+    //Greater Than
+    @Query("SELECT e.firstName FROM Employee e WHERE e.salary > ?1")
+    List<String> retrieveEmployeeSalaryGreaterThan(int salary);
+
+    //BETWEEN
+    @Query("SELECT e FROM Employee e WHERE e.salary BETWEEN ?1 AND ?2")
+    List<Employee> retrieveEmployeeSalaryBetween(int salary1, int salary2);
+
+    //BEFORE
+    @Query("SELECT e FROM Employee e WHERE e.hireDate > ?1")
+    List<Employee> retrieveEmployeeHireDateBefore(LocalDate date);
 }
