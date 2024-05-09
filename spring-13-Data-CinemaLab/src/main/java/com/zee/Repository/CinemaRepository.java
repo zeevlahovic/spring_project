@@ -1,7 +1,8 @@
-package com.zee;
+package com.zee.Repository;
 
 import com.zee.entity.Cinema;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     Cinema findByName(String name);
 
     //Write a derived query to read sorted the top 3 cinemas that contains a specific sponsored name
-    List<Cinema> findTopBySponsoredNameContaining(String sponsoredName);
+    List<Cinema> findTop3BySponsoredName(String sponsoredName);
 
     //Write a derived query to list all cinemas in a specific country
     List<Cinema> findByLocation_Country(String country);
@@ -28,21 +29,29 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query to read the cinema name with a specific id
-
+    @Query("SELECT c FROM Cinema c WHERE c.id = ?1")
+    Cinema findCinemaById(Long id);
 
 
     // ------------------- Native QUERIES ------------------- //
 
     //Write a native query to read all cinemas by location country
+   @Query(value = "SELECT c.* FROM cinema c JOIN location l ON c.location_id = l.id WHERE l.country = ?1", nativeQuery = true)
+    List<Cinema> findCinemaByCountry(String country);
 
 
     //Write a native query to read all cinemas by name or sponsored name contains a specific pattern
-
+    @Query(value = "SELECT * FROM cinema WHERE name LIKE %?1% OR sponsored_name LIKE %?1%", nativeQuery = true)
+    List<Cinema> findCinemasByNameOrSponsoredNameContaining(String pattern);
 
     //Write a native query to sort all cinemas by name
+    @Query(value = "SELECT * FROM cinema ORDER BY name", nativeQuery = true )
+    List<Cinema> sortByName();
 
 
     //Write a native query to distinct all cinemas by sponsored name
+    @Query(value = "SELECT DISTINCT sponsored_name FROM cinema", nativeQuery = true)
+    List<String> distinctAllBySponsoredName();
 
 
 }

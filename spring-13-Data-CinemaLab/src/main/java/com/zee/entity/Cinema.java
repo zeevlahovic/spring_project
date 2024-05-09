@@ -15,6 +15,6 @@ public class Cinema extends BaseEntity {
     private String name;
     private String sponsoredName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Location location;
 }
