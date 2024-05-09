@@ -2,13 +2,14 @@ package com.zee.entity;
 
 
 import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 public class Location extends BaseEntity {
 

@@ -2,13 +2,15 @@ package com.zee.entity;
 
 import com.zee.enums.UserRole;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @Table(name = "account_details")
+
 public class Account extends BaseEntity {
 
     private String name;
@@ -22,5 +24,7 @@ public class Account extends BaseEntity {
     private UserRole role;
     @OneToOne(mappedBy = "account")
     private User user;
+
+
 }
 

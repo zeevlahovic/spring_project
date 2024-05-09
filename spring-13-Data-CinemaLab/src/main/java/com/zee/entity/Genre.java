@@ -2,12 +2,13 @@ package com.zee.entity;
 
 
 import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class Genre extends BaseEntity {
 
     private String name;

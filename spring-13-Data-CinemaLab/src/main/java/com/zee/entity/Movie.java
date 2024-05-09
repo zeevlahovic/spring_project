@@ -4,15 +4,16 @@ package com.zee.entity;
 import com.zee.enums.MovieState;
 import com.zee.enums.MovieType;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 public class Movie extends BaseEntity {
 
