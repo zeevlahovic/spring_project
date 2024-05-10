@@ -2,6 +2,7 @@ package com.zee;
 
 import com.zee.Repository.AccountRepository;
 import com.zee.Repository.CinemaRepository;
+import com.zee.Repository.GenreRepository;
 import com.zee.enums.UserRole;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,10 +12,12 @@ public class TestQuery implements CommandLineRunner {
 
     private final CinemaRepository cinemaRepository;
     private final AccountRepository accountRepository;
+    private final GenreRepository genreRepository;
 
-    public TestQuery(CinemaRepository cinemaRepository, AccountRepository accountRepository) {
+    public TestQuery(CinemaRepository cinemaRepository, AccountRepository accountRepository, GenreRepository genreRepository) {
         this.cinemaRepository = cinemaRepository;
         this.accountRepository = accountRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
@@ -54,6 +57,13 @@ public class TestQuery implements CommandLineRunner {
         System.out.println(accountRepository.allAccountWithAgeLowerThan(30));
         System.out.println(accountRepository.specificValue("Josie D Story"));
         System.out.println(accountRepository.ageHigherThan(30));
+        System.out.println();
+        System.out.println("------------------GENRE QUERIES ---------------------------");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("---------------------JPQL QUERIES----------------------");
+        System.out.println(genreRepository.returnAll());
+        System.out.println(genreRepository.findByName("ome"));
 
     }
 }
