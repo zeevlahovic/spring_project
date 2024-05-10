@@ -3,6 +3,7 @@ package com.zee;
 import com.zee.Repository.AccountRepository;
 import com.zee.Repository.CinemaRepository;
 import com.zee.Repository.GenreRepository;
+import com.zee.Repository.MovieCinemaRepository;
 import com.zee.enums.UserRole;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,11 +14,13 @@ public class TestQuery implements CommandLineRunner {
     private final CinemaRepository cinemaRepository;
     private final AccountRepository accountRepository;
     private final GenreRepository genreRepository;
+    private final MovieCinemaRepository movieCinemaRepository;
 
-    public TestQuery(CinemaRepository cinemaRepository, AccountRepository accountRepository, GenreRepository genreRepository) {
+    public TestQuery(CinemaRepository cinemaRepository, AccountRepository accountRepository, GenreRepository genreRepository, MovieCinemaRepository movieCinemaRepository) {
         this.cinemaRepository = cinemaRepository;
         this.accountRepository = accountRepository;
         this.genreRepository = genreRepository;
+        this.movieCinemaRepository = movieCinemaRepository;
     }
 
     @Override
@@ -63,7 +66,13 @@ public class TestQuery implements CommandLineRunner {
         System.out.println("-------------------------------------------------------------");
         System.out.println("---------------------JPQL QUERIES----------------------");
         System.out.println(genreRepository.returnAll());
+        System.out.println("--------------------------NATIVE QUERY---------------------------------");
         System.out.println(genreRepository.findByName("ome"));
+        System.out.println("------------------MOVIE CINEMA ---------------------------");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("---------------------DERIVED QUERIES----------------------");
+        //System.out.println(movieCinemaRepository.findMovieCinemaById(3L));
 
     }
 }
