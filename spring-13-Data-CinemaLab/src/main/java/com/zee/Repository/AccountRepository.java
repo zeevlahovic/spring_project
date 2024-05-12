@@ -45,7 +45,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 
     //Write a JPQL query to list all admin accounts
-    @Query("SELECT a FROM Account a WHERE a.role ='admin'")
+    @Query("SELECT a FROM Account a WHERE a.role ='ADMIN'")
     List<Account> returnAllAdminAccounts();
 
 
@@ -61,7 +61,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
-
     @Query(value = "SELECT * FROM account_details WHERE ?1 IN (name, address, country, state, city)", nativeQuery = true)
     List<Account> specificValue(String keyword);
 
