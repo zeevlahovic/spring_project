@@ -8,6 +8,8 @@ import com.zee.enums.UserRole;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class TestQuery implements CommandLineRunner {
 
@@ -73,6 +75,9 @@ public class TestQuery implements CommandLineRunner {
         System.out.println("-------------------------------------------------------------");
         System.out.println("---------------------DERIVED QUERIES----------------------");
         //System.out.println(movieCinemaRepository.findMovieCinemaById(3L));
-
+        System.out.println(movieCinemaRepository.countByCinemaId(1L));
+        System.out.println(movieCinemaRepository.countByMovieId(2L));
+        //System.out.println(movieCinemaRepository.findByDateTimeAfter(LocalDateTime.of(2020 ,12,6,20,0)));
+        //System.out.println(movieCinemaRepository.findByMovie_Name("The Gentleman"));
     }
 }

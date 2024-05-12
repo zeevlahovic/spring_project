@@ -2,6 +2,7 @@ package com.zee.Repository;
 
 import com.zee.entity.MovieCinema;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -29,7 +30,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
 
 
     //Write a derived query to find the top 3 expensive movies
-    List<MovieCinema> findTop3ByMovie_Price();
+   // List<MovieCinema> findTop3ByMovie_Price();
 
 
     //Write a derived query to list all movie cinemas that contain a specific movie name
@@ -43,6 +44,9 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
     // ------------------- JPQL QUERIES ------------------- //
 
     //Write a JPQL query to list all movie cinemas with higher than a specific date
+
+    @Query("SELECT m FROM MovieCinema m WHERE m.dateTime > ?1")
+    List<MovieCinema> dateHigherThan(LocalDateTime localDateTime);
 
 
     // ------------------- Native QUERIES ------------------- //
