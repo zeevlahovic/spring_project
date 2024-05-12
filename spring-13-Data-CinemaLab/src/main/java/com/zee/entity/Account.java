@@ -5,12 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @Table(name = "account_details")
-
 public class Account extends BaseEntity {
 
     private String name;
@@ -24,7 +21,8 @@ public class Account extends BaseEntity {
     private UserRole role;
     @OneToOne(mappedBy = "account")
     private User user;
-
-
 }
+
+
+
 

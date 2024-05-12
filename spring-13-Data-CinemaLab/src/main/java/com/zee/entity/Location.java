@@ -7,9 +7,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 public class Location extends BaseEntity {
 
@@ -21,5 +19,6 @@ public class Location extends BaseEntity {
     private String state;
     private String city;
     private String address;
+
 
 }

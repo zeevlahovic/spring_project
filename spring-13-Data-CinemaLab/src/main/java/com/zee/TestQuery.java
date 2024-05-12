@@ -51,7 +51,7 @@ public class TestQuery implements CommandLineRunner {
         System.out.println(accountRepository.findByAgeLessThanEqual(50));
         System.out.println(accountRepository.findByRole(UserRole.USER));
         System.out.println(accountRepository.findByRole(UserRole.USER));
-        System.out.println(accountRepository.findByAgeBetween(10,30));
+        System.out.println(accountRepository.findByAgeBetween(10, 30));
         System.out.println(accountRepository.findByAddressStartingWith("26"));
         System.out.println(accountRepository.findByOrderByAgeAsc());
         System.out.println("-----------------------JPQL-----------------------------------------");
@@ -77,7 +77,11 @@ public class TestQuery implements CommandLineRunner {
         //System.out.println(movieCinemaRepository.findMovieCinemaById(3L));
         System.out.println(movieCinemaRepository.countByCinemaId(1L));
         System.out.println(movieCinemaRepository.countByMovieId(2L));
-        //System.out.println(movieCinemaRepository.findByDateTimeAfter(LocalDateTime.of(2020 ,12,6,20,0)));
-        //System.out.println(movieCinemaRepository.findByMovie_Name("The Gentleman"));
+        System.out.println(movieCinemaRepository.findByDateTimeAfter(LocalDateTime.of(2020 ,12,6,20,0)));
+        System.out.println(movieCinemaRepository.findByMovie_Name("The Gentleman"));
+        System.out.println(" ------------------- JPQL QUERIES ------------------- ");
+       System.out.println(movieCinemaRepository.dateHigherThan(LocalDateTime.of(2020 ,12,6,20,0)));
+        System.out.println("------------------- Native QUERIES ------------------- ");
+        System.out.println(movieCinemaRepository.countMovieCinemasByLocationName("AMC Empire 25"));
     }
 }

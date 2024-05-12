@@ -12,11 +12,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
-
 public class Movie extends BaseEntity {
 
     private String name;
@@ -35,8 +32,5 @@ public class Movie extends BaseEntity {
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genreList;
-
-
-
 
 }

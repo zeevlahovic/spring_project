@@ -6,9 +6,7 @@ import lombok.*;
 
 @Entity
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Genre extends BaseEntity {
 
     private String name;
