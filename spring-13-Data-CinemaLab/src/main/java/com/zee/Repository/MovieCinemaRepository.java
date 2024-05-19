@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
@@ -14,7 +15,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
     // ------------------- DERIVED QUERIES ------------------- //
 
     //Write a derived query to read movie cinema with id
-    MovieCinema findMovieCinemaById(Long id);
+    Optional<MovieCinema> findById(Long id);
 
 
     //Write a derived query to count all movie cinemas with a specific cinema id
@@ -30,11 +31,11 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
 
 
     //Write a derived query to find the top 3 expensive movies
-   // List<MovieCinema> findTop3ByMovie_Price();
+    List<MovieCinema> findFirst3ByOrderByMoviePriceDesc();
 
 
     //Write a derived query to list all movie cinemas that contain a specific movie name
-    List<MovieCinema> findByMovie_Name(String name);
+    List<MovieCinema> findByMovie_NameContaining(String name);
 
 
     //Write a derived query to list all movie cinemas in a specific location name
@@ -53,7 +54,7 @@ public interface MovieCinemaRepository extends JpaRepository<MovieCinema,Long> {
 
     //Write a native query to count all movie cinemas by cinema id
     @Query(value = "SELECT COUNT(*) FROM movie_cinema WHERE cinema_id = ?1",nativeQuery = true)
-    List<MovieCinema> countMovieCinemasById(Long id);
+    Integer countMovieCinemasById(Long id);
 
 
     //Write a native query that returns all movie cinemas by location name

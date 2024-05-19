@@ -78,7 +78,7 @@ public class TestQuery implements CommandLineRunner {
         System.out.println(movieCinemaRepository.countByCinemaId(1L));
         System.out.println(movieCinemaRepository.countByMovieId(2L));
         System.out.println(movieCinemaRepository.findByDateTimeAfter(LocalDateTime.of(2020 ,12,6,20,0)));
-        System.out.println(movieCinemaRepository.findByMovie_Name("The Gentleman"));
+      //  System.out.println(movieCinemaRepository.findByMovie_Name("The Gentleman"));
         System.out.println(" ------------------- JPQL QUERIES ------------------- ");
        System.out.println(movieCinemaRepository.dateHigherThan(LocalDateTime.of(2020 ,12,6,20,0)));
         System.out.println("------------------- Native QUERIES ------------------- ");
