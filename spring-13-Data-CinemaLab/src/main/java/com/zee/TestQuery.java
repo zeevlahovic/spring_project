@@ -31,7 +31,7 @@ public class TestQuery implements CommandLineRunner {
         System.out.println("-------------CINEMA-------------------");
         System.out.println(cinemaRepository.findByName("Hall 1 - EMPIRE"));
         System.out.println(cinemaRepository.findByLocation_Country("United States"));
-        System.out.println(cinemaRepository.findTop3BySponsoredName("Kodak"));
+       // System.out.println(cinemaRepository.findTop3BySponsoredName("Kodak"));
         System.out.println(cinemaRepository.findByNameOrSponsoredName("Hall 1 - EMPIRE", "Du Pont"));
 
         System.out.println("--------------------JPQL------------------------------");
@@ -60,7 +60,7 @@ public class TestQuery implements CommandLineRunner {
         System.out.println(accountRepository.sortAllAccountByAge());
         System.out.println("--------------------------NATIVE QUERY---------------------------------");
         System.out.println(accountRepository.allAccountWithAgeLowerThan(30));
-        System.out.println(accountRepository.specificValue("Josie D Story"));
+       // System.out.println(accountRepository.specificValue("Josie D Story"));
         System.out.println(accountRepository.ageHigherThan(30));
         System.out.println();
         System.out.println("------------------GENRE QUERIES ---------------------------");
