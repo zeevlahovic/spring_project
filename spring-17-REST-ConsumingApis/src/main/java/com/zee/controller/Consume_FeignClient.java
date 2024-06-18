@@ -1,5 +1,6 @@
 package com.zee.controller;
 
+import com.zee.client.EmployeeClient;
 import com.zee.client.UserClient;
 import com.zee.dto.ResponseWrapper;
 import org.springframework.http.ResponseEntity;
