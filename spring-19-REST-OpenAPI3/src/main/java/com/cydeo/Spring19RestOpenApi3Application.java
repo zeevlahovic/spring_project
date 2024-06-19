@@ -27,8 +27,8 @@ public class Spring19RestOpenApi3Application {
         return new OpenAPI().info(new Info()
                 .title("Zee Application OpenAPI")
                 .version("v1")
-                .description("Cydeo application API documentation"))
-                .servers(List.of(new Server().url("https://dev.cydeo.com").description("Dev Environment")));
+                .description("Zee application API documentation"))
+                .servers(List.of(new Server().url("https://dev.zee.com").description("Dev Environment")));
     }
 
 }
