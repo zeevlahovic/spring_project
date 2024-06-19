@@ -1,6 +1,6 @@
-package com.cydeo.repository;
+package com.zee.repository;
 
-import com.cydeo.entity.Course;
+import com.zee.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

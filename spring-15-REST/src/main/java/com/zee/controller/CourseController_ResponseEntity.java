@@ -1,7 +1,7 @@
-package com.cydeo.controller;
+package com.zee.controller;
 
-import com.cydeo.dto.CourseDTO;
-import com.cydeo.service.CourseService;
+import com.zee.dto.CourseDTO;
+import com.zee.service.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

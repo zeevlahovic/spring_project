@@ -1,4 +1,4 @@
-package com.cydeo.dto;
+package com.zee.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

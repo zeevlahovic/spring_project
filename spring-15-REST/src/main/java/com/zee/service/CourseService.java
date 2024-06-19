@@ -1,6 +1,6 @@
-package com.cydeo.service;
+package com.zee.service;
 
-import com.cydeo.dto.CourseDTO;
+import com.zee.dto.CourseDTO;
 
 import java.util.List;
 

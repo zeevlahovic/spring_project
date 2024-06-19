@@ -1,4 +1,4 @@
-package com.cydeo;
+package com.zee;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

@@ -1,8 +1,7 @@
-package com.cydeo.controller;
+package com.zee.controller;
 
-import com.cydeo.dto.CourseDTO;
-import com.cydeo.service.CourseService;
-import org.springframework.stereotype.Controller;
+import com.zee.dto.CourseDTO;
+import com.zee.service.CourseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
