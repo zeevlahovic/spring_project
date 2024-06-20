@@ -1,5 +1,9 @@
 package com.zee.controller;
 
+import com.zee.dto.GenreDTO;
+import com.zee.dto.MovieCinemaDTO;
+import com.zee.service.GenreService;
+import com.zee.service.MovieCinemaService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

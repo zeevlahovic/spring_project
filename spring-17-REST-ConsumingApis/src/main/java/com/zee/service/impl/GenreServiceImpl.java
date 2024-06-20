@@ -1,7 +1,10 @@
 package com.zee.service.impl;
 
 import com.zee.dto.GenreDTO;
+import com.zee.entity.Genre;
+import com.zee.repository.GenreRepository;
 import com.zee.service.GenreService;
+import com.zee.util.MapperUtil;
 import org.springframework.stereotype.Service;
 
 @Service

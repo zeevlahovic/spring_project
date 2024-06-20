@@ -1,7 +1,10 @@
 package com.zee.service.impl;
 
 import com.zee.dto.MovieCinemaDTO;
+import com.zee.entity.MovieCinema;
+import com.zee.repository.MovieCinemaRepository;
 import com.zee.service.MovieCinemaService;
+import com.zee.util.MapperUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

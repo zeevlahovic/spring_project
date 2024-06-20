@@ -1,5 +1,7 @@
 package com.zee.dto;
 
+import com.zee.enums.MovieState;
+import com.zee.enums.MovieType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
